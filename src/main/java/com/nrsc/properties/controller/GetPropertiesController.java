@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GetPropertiesController {
 
+    //从spring容器中拿出"大盒子"类
     @Autowired
     private SecurityProperties securityProperties;
     @Autowired
     private Unions unions;
 
-
     @GetMapping("/getProperties")
     public String getProperties() {
 
+        //获得传到"大盒子"类中的参数值
         System.out.println("方式1--properties里没配置值,默认值browser--------->" +
                 securityProperties.getBrowser().getLoginPage());
         System.out.println("方式1--properties里配置了值Android,默认值app------>" +
